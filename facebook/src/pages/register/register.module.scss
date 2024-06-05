@@ -1,0 +1,15 @@
+.register {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    gap: 15px;
+
+    div {
+        width: 100%;
+
+        .error {
+            color: red;
+        }
+    }
+}
