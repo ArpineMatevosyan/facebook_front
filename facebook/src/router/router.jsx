@@ -6,7 +6,6 @@ import { mainRoute, signInRoute } from "./route";
 
 const Router = () => {
   const { signIn } = useSelector((state) => state.auth);
-
   return (
     <Routes path="/" element={<Layout />}>
       {signIn

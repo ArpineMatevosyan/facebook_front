@@ -15,8 +15,9 @@ const Header = () => {
 
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        {!signIn && <Link to="/login">Login</Link>}
+        {!signIn && <Link to="/register">Register</Link>}
+        {!signIn && <Link to="/account">My account</Link>}
       </nav>
       {signIn && (
         <Button variant="outlined" onClick={() => dispatch(setSignOut())}>

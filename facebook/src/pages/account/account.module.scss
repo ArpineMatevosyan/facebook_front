@@ -1,0 +1,56 @@
+.accountContainer {
+    margin: 0 auto;
+    width: 1240px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    border: 1px solid gray;
+    gap: 5px;
+    background-color: #fff;
+
+
+    .account {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        p {
+            margin-left: 20px;
+        }
+
+        .personalInfo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .friends {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+
+        a {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
+
+
+    }
+}
