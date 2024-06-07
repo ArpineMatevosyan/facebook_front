@@ -1,67 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUsers } from "../../services/getUsers/getUsers";
+import { AuthAPI } from "../../services/auth/slice";
 
-const auth = createSlice({
-  name: "auth",
+const Auth = createSlice({
+  name: "Auth",
   initialState: {
-    users: [],
-    loading: false,
-    error: null,
-    name: false,
-    password: "",
-    signIn: false,
-    createName: "",
-    createPassword: "",
-    repeatPassword: "",
+    list: [],
+    onRegister: "",
+    deleteRegister: "",
+    status: null,
   },
-  reducers: {
-    setName: (state, action) => {
-      state.name = action.payload;
-    },
-    setPassword: (state, action) => {
-      state.password = action.payload;
-    },
-    setSignIn: (state) => {
-      state.signIn = true;
-    },
-    setSignOut: (state) => {
-      state.signIn = false;
-      state.name = false;
-    },
-    setCreateName: (state, action) => {
-      state.createName = action.payload;
-    },
-    setCreatePassword: (state, action) => {
-      state.createPassword = action.payload;
-    },
-    setRepeatPassword: (state, action) => {
-      state.repeatPassword = action.payload;
-    },
-  },
+
   extraReducers: (builder) => {
     builder
-      .addCase(getUsers.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(AuthAPI.postRegister.fulfilled, (state, action) => {
+        state.status = action.payload.statusText;
       })
-      .addCase(getUsers.fulfilled, (state, action) => {
-        state.loading = false;
-        state.users = action.payload;
-      })
-      .addCase(getUsers.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
+      .addCase(AuthAPI.postLogin.fulfilled, (state, action) => {
+        console.log(action.payload, "oo");
       });
   },
 });
 
-export const {
-  setName,
-  setPassword,
-  setCreateName,
-  setCreatePassword,
-  setRepeatPassword,
-  setSignIn,
-  setSignOut,
-} = auth.actions;
-export default auth.reducer;
+export default Auth;

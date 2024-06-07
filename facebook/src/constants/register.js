@@ -27,8 +27,8 @@ export const registerData = [
   {
     title: "createBirthday",
     placeholder: "Birthday",
-    type: "number",
-    name: "birthday",
+    type: "string",
+    name: "birth_date",
   },
   {
     title: "createPassword",
@@ -37,9 +37,9 @@ export const registerData = [
     name: "password",
   },
   {
-    title: "repeatPassword",
+    title: "confirm_password",
     placeholder: "Repeat password",
     type: "password",
-    name: "repeatPass",
+    name: "confirm_password",
   },
 ];

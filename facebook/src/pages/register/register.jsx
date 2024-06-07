@@ -2,22 +2,19 @@ import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import { registerData } from "../../constants/register";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setCreateName,
-  setCreatePassword,
-  setRepeatPassword,
-} from "../../store/auth/slice";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { schema } from "./validation/validation";
 import { yupResolver } from "@hookform/resolvers/yup";
+import MainDate from "../../components/datePicker/mainDate";
+import { AuthAPI } from "../../services/auth/slice";
 
 import styles from "./register.module.scss";
 
 const Register = () => {
-  const { createName, createPassword, repeatPassword } = useSelector(
-    (state) => state.auth
-  );
+  // const { createName, createPassword, repeatPassword } = useSelector(
+  //   (state) => state.auth
+  // );
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -27,24 +24,23 @@ const Register = () => {
   } = useForm({
     defaultValues: {
       name: "",
+      surname: "",
+      email: "",
+      phone: "",
+      birth_date: "",
       password: "",
-      repeatPass: "",
+      confirm_password: "",
     },
-    resolver: yupResolver(schema),
+    // resolver: yupResolver(schema),
   });
   const onSubmit = handleSubmit((data) => {
-    if (data.password !== data.repeatPass) return;
-    localStorage.setItem("name", data.name);
-    localStorage.setItem("pass", data.repeatPass);
-    navigate("/");
-    dispatch(setCreateName(data.name));
-    dispatch(setCreatePassword(data.password));
-    dispatch(setRepeatPassword(data.repeatPass));
+    dispatch(AuthAPI.postRegister(data));
+    navigate("/login");
   });
   return (
     <div className={styles.register}>
       {registerData?.map((inp, idx) => (
-        <div>
+        <div key={idx}>
           <Input
             key={idx}
             type={inp.type}
@@ -58,6 +54,7 @@ const Register = () => {
           )}
         </div>
       ))}
+      {/* <MainDate control={control} name="birthday" /> */}
       <Button variant="contained" onClick={onSubmit}>
         REGISTER
       </Button>

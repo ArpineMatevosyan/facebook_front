@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./auth/slice";
+import { thunk } from "redux-thunk";
+import Auth from "./auth/slice";
 
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
+    auth: Auth.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }).concat(thunk),
+  devTools: process.env.REACT_APP_ENV !== "dev",
 });

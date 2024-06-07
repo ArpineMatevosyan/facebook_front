@@ -10,7 +10,7 @@ export const schema = yup.object().shape({
     .string()
     .matches(regex, "Wrong format")
     .required("You must a have password"),
-  repeatPass: yup
+  confirm_password: yup
     .string()
     .oneOf([yup.ref("password"), null], "Password must match!")
     .required("REPEAT IT"),

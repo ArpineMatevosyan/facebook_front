@@ -1,9 +1,9 @@
 export const loginData = [
   {
-    title: "login",
-    placeholder: "Name",
-    type: "text",
-    name: "name",
+    title: "email",
+    placeholder: "email",
+    type: "email",
+    name: "email",
   },
   {
     title: "Password",
