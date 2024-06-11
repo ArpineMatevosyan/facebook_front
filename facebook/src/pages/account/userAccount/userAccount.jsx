@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import styles from "./userAccount.module.scss";
 
 const UserAccount = () => {
-  const { signIn } = useSelector((state) => state.auth);
-  console.log(signIn);
   return (
     <div className={styles.userAccount}>
       <div className={styles.personalInfo}>

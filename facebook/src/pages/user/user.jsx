@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 const User = () => {
   return (
     <div className={styles.userContainer}>
-      <div className={styles.user}>
-        {/* <img src="./images/personal_info.jpg" alt="user image"></img> */}
-      </div>
+      <div className={styles.user}></div>
       <div className={styles.linkContainer}>
         <Link to="/images">Images</Link>
         <Link to="/info">Information</Link>

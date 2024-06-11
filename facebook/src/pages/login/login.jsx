@@ -5,12 +5,14 @@ import { loginData } from "../../constants/login";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import { AuthAPI } from "../../services/auth/slice";
+import { isSignIn } from "../../store/auth/slice";
 
 import styles from "./login.module.scss";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { signIn } = useSelector((state) => state.auth);
 
   const { handleSubmit, control } = useForm({
     defaultValues: {
@@ -20,7 +22,9 @@ const Login = () => {
   });
   const onSubmit = handleSubmit((data) => {
     dispatch(AuthAPI.postLogin(data));
-    //navigate("/account");
+    if (signIn) {
+      navigate("/account");
+    }
   });
 
   return (

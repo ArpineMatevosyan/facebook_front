@@ -2,9 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "../components/Layouts/layout";
 import { useSelector } from "react-redux";
 import { signInRoute, guestRouter } from "./route";
+import Auth from "../store/auth/slice";
 
 const Router = () => {
-  const signIn = false;
+  const { signIn } = useSelector((state) => state.auth);
+  // const signIn = localStorage.getItem("token") ? true : false;
+
   return (
     <Routes path="/" element={<Layout />}>
       {signIn

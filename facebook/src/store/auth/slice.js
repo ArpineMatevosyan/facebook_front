@@ -8,6 +8,12 @@ const Auth = createSlice({
     onRegister: "",
     deleteRegister: "",
     status: null,
+    signIn: false,
+  },
+  reducers: {
+    isSignIn: (state, action) => {
+      state.signIn = action.payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -16,9 +22,22 @@ const Auth = createSlice({
         state.status = action.payload.statusText;
       })
       .addCase(AuthAPI.postLogin.fulfilled, (state, action) => {
-        console.log(action.payload, "oo");
+        const { token, user } = action.payload.data.data;
+        localStorage.setItem("token", token);
+        state.signIn = true;
+        if (user) {
+          state.list.push({
+            name: user.name,
+            surname: user.surname,
+          });
+        }
+        // user ? state.list.push({ name: user.name, surname: user.surname }) : "";
+        console.log(state.list);
+        console.log(user.name);
       });
   },
 });
+
+export const { isSignIn } = Auth.actions;
 
 export default Auth;

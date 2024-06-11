@@ -1,15 +1,12 @@
-// import React from "react";
-// import ImageUpload from "../../../components/images/image/image";
+import React from "react";
+import Image from "../../../components/images/image";
 
-// const Images = () => {
-//   const imgSrc = localStorage.getItem("img");
-//   console.log(imgSrc);
-//   return (
-//     <>
-//       <ImageUpload />
-//       {/* {imgSrc ? <img src={URL.createObjectURL(imgSrc)} /> : null} */}
-//     </>
-//   );
-// };
+const Images = () => {
+  return (
+    <div>
+      <Image />
+    </div>
+  );
+};
 
-// export default Images;
+export default Images;

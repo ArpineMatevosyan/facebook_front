@@ -26,8 +26,7 @@ export const registerData = [
 
   {
     title: "createBirthday",
-    placeholder: "Birthday",
-    type: "string",
+    label: "Birth Date",
     name: "birth_date",
   },
   {
