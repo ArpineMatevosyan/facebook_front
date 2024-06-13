@@ -1,30 +1,21 @@
 import React from "react";
+import { friendsData } from "./data";
 
 import styles from "./userFriends.module.scss";
 
 const UserFriends = () => {
   return (
     <div className={styles.userFriends}>
-      <a>
-        friends
-        <img src="./images/personal_info.jpg" alt="user image"></img>
-      </a>
-      <a>
-        friends
-        <img src="./images/personal_info.jpg" alt="user image"></img>
-      </a>
-      <a>
-        friends
-        <img src="./images/personal_info.jpg" alt="user image"></img>
-      </a>
-      <a>
-        friends
-        <img src="./images/personal_info.jpg" alt="user image"></img>
-      </a>
-      <a>
-        friends
-        <img src="./images/personal_info.jpg" alt="user image"></img>
-      </a>
+      {friendsData
+        ? friendsData.map((friend, idx) => (
+            <a>
+              <span>
+                {friend.name} {friend.lastName}
+              </span>
+              <img src={friend.imgSrc} alt="user image"></img>
+            </a>
+          ))
+        : ""}
     </div>
   );
 };

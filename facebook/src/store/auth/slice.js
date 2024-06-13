@@ -26,6 +26,7 @@ const Auth = createSlice({
         localStorage.setItem("token", token);
         state.signIn = true;
         if (user) {
+          console.log(user.name);
           state.list.push({
             name: user.name,
             surname: user.surname,

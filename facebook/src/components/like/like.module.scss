@@ -1,0 +1,17 @@
+.likeContainer {
+    width: 40px;
+
+    .like {
+        width: 20px;
+        height: auto;
+        transition: width 0.2s ease;
+
+        &:hover {
+            width: 30px;
+        }
+    }
+
+    .liked {
+        color: red;
+    }
+}

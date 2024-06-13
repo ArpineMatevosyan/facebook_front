@@ -6,7 +6,7 @@ const UserAccount = () => {
   return (
     <div className={styles.userAccount}>
       <div className={styles.personalInfo}>
-        <img src="./images/personal_info.jpg" alt="user image"></img>
+        {/* /  <img src="./images/personal_info.jpg" alt="user image"></img> */}
         <Link to="/user">
           {localStorage.getItem("name") + " " + localStorage.getItem("surname")}
         </Link>

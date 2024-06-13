@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 
-const button = ({ variant, children, onClick }) => {
+const MainButton = ({ variant, children, onClick }) => {
   return (
     <Button variant={variant} onClick={onClick}>
       {children}
@@ -8,4 +8,4 @@ const button = ({ variant, children, onClick }) => {
   );
 };
 
-export default button;
+export default MainButton;

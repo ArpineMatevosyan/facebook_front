@@ -1,5 +1,5 @@
 import Input from "../../components/input/input";
-import Button from "../../components/button/button";
+import MainButton from "../../components/button/button";
 import { registerData } from "../../constants/register";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -64,9 +64,9 @@ const Register = () => {
         </div>
       ))}
       {/* <MainDate control={control} name="birth_date" label="Birth Date" /> */}
-      <Button variant="contained" onClick={onSubmit}>
+      <MainButton variant="contained" onClick={onSubmit}>
         REGISTER
-      </Button>
+      </MainButton>
     </div>
   );
 };

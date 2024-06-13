@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { loginData } from "../../constants/login";
 import Input from "../../components/input/input";
-import Button from "../../components/button/button";
+import MainButton from "../../components/button/button";
 import { AuthAPI } from "../../services/auth/slice";
 import { isSignIn } from "../../store/auth/slice";
 
@@ -40,9 +40,9 @@ const Login = () => {
           placeholder={inp.placeholder}
         />
       ))}
-      <Button variant="outlined" onClick={onSubmit} disabled>
+      <MainButton variant="outlined" onClick={onSubmit} disabled>
         Login
-      </Button>
+      </MainButton>
       <Link to="/register">Create a new account</Link>
     </div>
   );

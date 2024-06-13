@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setSignOut } from "../../store/auth/slice";
 import { isSignIn } from "../../store/auth/slice";
@@ -14,14 +14,15 @@ const Header = () => {
   function signOut() {
     dispatch(isSignIn(false));
     localStorage.removeItem("token");
+    navigate("/");
   }
 
   return (
     <div className={styles.header}>
       <nav>
         {!signIn && <Link to="/">Login</Link>}
-        {signIn && <Link to="/">Home</Link>}
-        {signIn && <Link to="/account">My account</Link>}
+        {signIn && <NavLink to="/">Home</NavLink>}
+        {signIn && <NavLink to="/account">My account</NavLink>}
       </nav>
       {signIn && (
         <Button variant="outlined" onClick={signOut}>
