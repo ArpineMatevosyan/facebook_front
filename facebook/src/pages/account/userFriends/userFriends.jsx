@@ -8,7 +8,7 @@ const UserFriends = () => {
     <div className={styles.userFriends}>
       {friendsData
         ? friendsData.map((friend, idx) => (
-            <a>
+            <a key={idx}>
               <span>
                 {friend.name} {friend.lastName}
               </span>

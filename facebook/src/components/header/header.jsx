@@ -1,6 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setSignOut } from "../../store/auth/slice";
 import { isSignIn } from "../../store/auth/slice";
 import Button from "../button/button";
 

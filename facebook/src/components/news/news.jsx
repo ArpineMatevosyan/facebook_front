@@ -14,9 +14,9 @@ const News = () => {
             <div key={id} className={styles.container}>
               <div className={styles.news}>
                 <h2 className={styles.author}>{data.author}</h2>
-                <p className={styles.description}>
+                <div className={styles.description}>
                   <StringControl string={data.description} />
-                </p>
+                </div>
                 <div className={styles.action}>
                   <Like />
                   <Comment />

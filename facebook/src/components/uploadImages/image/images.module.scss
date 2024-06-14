@@ -1,0 +1,71 @@
+.container {
+    max-width: 1140px;
+    margin: 20px auto;
+    // border: 1px solid rgba(74, 67, 148, 0.3);
+    box-shadow: 14px 14px 30px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+
+    .chooseFileContainer {
+
+
+        .chooseFile {
+            display: flex;
+            width: 150px;
+            padding: 8px 20px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+        .file {
+            position: absolute;
+            width: 150px;
+            top: 0;
+            left: 0;
+            opacity: 0;
+
+            cursor: pointer;
+        }
+    }
+
+    .imageBox {
+        margin: 0 auto;
+        width: 300px;
+        height: 200px;
+        position: relative;
+
+        img {
+            width: 300px;
+            height: 200px;
+        }
+
+        .imageDel {
+            position: absolute;
+            right: -30px;
+            top: -12px;
+            bottom: 0;
+        }
+    }
+
+    .uploadImagesContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 auto;
+        justify-content: center;
+
+        img {
+            border: 1px solid gray;
+            padding: 5px;
+            width: 300px;
+            height: 300px;
+            border-radius: 13px;
+        }
+    }
+}

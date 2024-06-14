@@ -1,12 +1,13 @@
 import React from "react";
-import Image from "../../../components/images/image";
+import Images from "../../../components/uploadImages/images/images";
+import Image from "../../../components/uploadImages/image/image";
 
-const Images = () => {
+const UploadImages = () => {
   return (
     <div>
-      <Image />
+      <Images />
     </div>
   );
 };
 
-export default Images;
+export default UploadImages;
