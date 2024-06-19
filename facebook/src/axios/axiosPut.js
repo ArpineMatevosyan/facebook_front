@@ -1,12 +1,14 @@
 import axios from "axios";
-const axiosPost = axios.create({
+
+const axiosPut = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     Accept: "application/json",
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
   },
 });
-axiosPost.interceptors.request.use(
+
+axiosPut.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -18,7 +20,8 @@ axiosPost.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-axiosPost.interceptors.response.use(
+
+axiosPut.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -34,4 +37,5 @@ axiosPost.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-export default axiosPost;
+
+export default axiosPut;

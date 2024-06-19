@@ -53,19 +53,19 @@
         }
     }
 
-    .uploadImagesContainer {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 0 auto;
-        justify-content: center;
+    // .uploadImagesContainer {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     gap: 10px;
+    //     margin: 0 auto;
+    //     justify-content: center;
 
-        img {
-            border: 1px solid gray;
-            padding: 5px;
-            width: 300px;
-            height: 300px;
-            border-radius: 13px;
-        }
-    }
+    //     img {
+    //         border: 1px solid gray;
+    //         padding: 5px;
+    //         width: 300px;
+    //         height: 300px;
+    //         border-radius: 13px;
+    //     }
+    // }
 }

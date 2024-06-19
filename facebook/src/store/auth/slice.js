@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AuthAPI } from "../../services/auth/slice";
+import { AuthAPI } from "../../services/auth";
 
 const Auth = createSlice({
   name: "Auth",
   initialState: {
-    list: [],
+    //  list: [],
     onRegister: "",
     deleteRegister: "",
     status: null,
     signIn: false,
+    verifyEmail: "",
+    verify: false,
   },
   reducers: {
     isSignIn: (state, action) => {
       state.signIn = action.payload;
+    },
+    isVerifyEmail: (state, action) => {
+      state.verifyEmail = action.payload;
     },
   },
 
@@ -22,23 +27,24 @@ const Auth = createSlice({
         state.status = action.payload.statusText;
       })
       .addCase(AuthAPI.postLogin.fulfilled, (state, action) => {
-        const { token, user } = action.payload.data.data;
+        const { token } = action.payload.data.data;
         localStorage.setItem("token", token);
         state.signIn = true;
-        if (user) {
-          console.log(user.name);
-          state.list.push({
-            name: user.name,
-            surname: user.surname,
-          });
+      })
+
+      .addCase(AuthAPI.postVerify.fulfilled, (state, action) => {
+        console.log(action.payload.data.data.original.message);
+        if (
+          action.payload.data.data.original.message ===
+          "Email verified successfully"
+        ) {
+          state.verify = true;
         }
-        // user ? state.list.push({ name: user.name, surname: user.surname }) : "";
-        console.log(state.list);
-        console.log(user.name);
-      });
+      })
+      .addCase(AuthAPI.putChangePass.fulfilled, (state, action) => {});
   },
 });
 
-export const { isSignIn } = Auth.actions;
+export const { isSignIn, isVerifyEmail } = Auth.actions;
 
 export default Auth;

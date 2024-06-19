@@ -1,4 +1,4 @@
-import News from "../../../components/news/news";
+import News from "../../../../components/news/news";
 
 import styles from "./userNews.module.scss";
 

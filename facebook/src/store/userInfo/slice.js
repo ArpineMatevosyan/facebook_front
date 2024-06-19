@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUserInfo } from "../../services/userInfo/slice";
+import { UserInfoAPI } from "../../services/userInfo";
 
 const UserInfo = createSlice({
   name: "UserInfo",
@@ -9,12 +9,10 @@ const UserInfo = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getUserInfo.fulfilled, (state, action) => {
-      state.userInfo = action.payload.data;
+    builder.addCase(UserInfoAPI.getUserInfo.fulfilled, (state, action) => {
+      state.userInfo = action.payload.data.data;
     });
   },
 });
-
-//export const {} = UserInfo.actions;
 
 export default UserInfo;

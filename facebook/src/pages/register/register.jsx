@@ -7,15 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { schema } from "./validation/validation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import MainDate from "../../components/datePicker/mainDate";
-import { AuthAPI } from "../../services/auth/slice";
+import { AuthAPI } from "../../services/auth";
+import { isVerifyEmail } from "../../store/auth/slice";
 import dayjs from "dayjs";
 
 import styles from "./register.module.scss";
 
 const Register = () => {
-  // const { createName, createPassword, repeatPassword } = useSelector(
-  //   (state) => state.auth
-  // );
+  const { verifyEmail } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -35,13 +34,17 @@ const Register = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = handleSubmit((data) => {
+    dispatch(isVerifyEmail(data.email));
     const formattedBirthDate = data.birth_date
       ? dayjs(data.birth_date).format("YYYY-MM-DD")
       : "";
+
     const formData = { ...data, birth_date: formattedBirthDate };
     dispatch(AuthAPI.postRegister(formData));
-    navigate("/login");
+    navigate("/verify");
+    //navigate("/login");
   });
+  console.log(verifyEmail);
   return (
     <div className={styles.register}>
       {registerData?.map((inp, idx) => (

@@ -2,9 +2,9 @@ import React from "react";
 import { newsData } from "./newsData";
 import Like from "../like/like";
 import Comment from "../comment/comment";
+import StringControl from "../stringControl/stringControl";
 
 import styles from "./news.module.scss";
-import StringControl from "../stringControl/stringControl";
 
 const News = () => {
   return (

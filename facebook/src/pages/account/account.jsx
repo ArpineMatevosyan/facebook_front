@@ -1,9 +1,9 @@
 import React from "react";
+import UserAccount from "./components/userAccount/userAccount";
+import UserNews from "./components/userNews/userNews";
+import UserFriends from "./components/userFriends/userFriends";
 
 import styles from "./account.module.scss";
-import UserAccount from "./components/userAccount/userAccount";
-import UserNews from "./userNews/userNews";
-import UserFriends from "./userFriends/userFriends";
 
 const Account = () => {
   return (

@@ -4,8 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { loginData } from "../../constants/login";
 import Input from "../../components/input/input";
 import MainButton from "../../components/button/button";
-import { AuthAPI } from "../../services/auth/slice";
-import { isSignIn } from "../../store/auth/slice";
+import { AuthAPI } from "../../services/auth";
 
 import styles from "./login.module.scss";
 
@@ -44,6 +43,7 @@ const Login = () => {
         Login
       </MainButton>
       <Link to="/register">Create a new account</Link>
+      <Link to="/forGotPass">Forgot password?</Link>
     </div>
   );
 };
