@@ -7,7 +7,7 @@ import Images from "../pages/user/images/images";
 import Info from "../pages/user/info/info";
 import News from "../pages/user/news/news";
 import Verify from "../pages/register/components/verify";
-import ChangePass from "../pages/user/info/components/changePass";
+import ChangePass from "../pages/user/info/components/changes/changePass/changePass";
 import ForgotPass from "../pages/login/components/forGotPass";
 
 export const guestRouter = [

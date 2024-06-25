@@ -4,13 +4,13 @@ import { AuthAPI } from "../../services/auth";
 const Auth = createSlice({
   name: "Auth",
   initialState: {
-    //  list: [],
     onRegister: "",
     deleteRegister: "",
     status: null,
     signIn: false,
     verifyEmail: "",
     verify: false,
+    changePassStatus: false,
   },
   reducers: {
     isSignIn: (state, action) => {
@@ -19,12 +19,15 @@ const Auth = createSlice({
     isVerifyEmail: (state, action) => {
       state.verifyEmail = action.payload;
     },
+    isChangePassStatus: (state, action) => {
+      state.changePassStatus = false;
+    },
   },
 
   extraReducers: (builder) => {
     builder
       .addCase(AuthAPI.postRegister.fulfilled, (state, action) => {
-        state.status = action.payload.statusText;
+        //state.status = action.payload.statusText;
       })
       .addCase(AuthAPI.postLogin.fulfilled, (state, action) => {
         const { token } = action.payload.data.data;
@@ -41,10 +44,14 @@ const Auth = createSlice({
           state.verify = true;
         }
       })
-      .addCase(AuthAPI.putChangePass.fulfilled, (state, action) => {});
+      .addCase(AuthAPI.putChangePass.fulfilled, (state, action) => {
+        if (action.payload.data.data) {
+          state.changePassStatus = true;
+        }
+      });
   },
 });
 
-export const { isSignIn, isVerifyEmail } = Auth.actions;
+export const { isSignIn, isVerifyEmail, isChangePassStatus } = Auth.actions;
 
 export default Auth;

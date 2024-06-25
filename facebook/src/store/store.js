@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { thunk } from "redux-thunk";
 import Auth from "./auth/slice";
-import UserImages from "./images/slice";
-import UserInfo from "./userInfo/slice";
+import Media from "./media/slice";
+import UserInfo from "./user/slice";
 
 export const store = configureStore({
   reducer: {
     auth: Auth.reducer,
-    userImages: UserImages.reducer,
+    media: Media.reducer,
     user: UserInfo.reducer,
   },
   middleware: (getDefaultMiddleware) =>

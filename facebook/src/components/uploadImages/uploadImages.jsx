@@ -1,14 +1,15 @@
 import MainButton from "../button/button";
 import { useDispatch, useSelector } from "react-redux";
 import { ImagesAPI } from "../../services/images";
-import { isDel } from "../../store/images/slice";
+import { isDel } from "../../store/media/slice";
 import UserImages from "../userImages/userImages";
 
 import styles from "./images.module.scss";
+import clsx from "clsx";
 
 const Images = () => {
   const dispatch = useDispatch();
-  const { imagesData, images } = useSelector((state) => state.userImages);
+  const { imagesData, images } = useSelector((state) => state.media);
 
   const onAdd = () => {
     if (images) {
@@ -26,7 +27,7 @@ const Images = () => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={clsx(styles.container)}>
         <div className={styles.chooseFileContainer}>
           <label htmlFor="file" className={styles.chooseFile}>
             Choose file to upload

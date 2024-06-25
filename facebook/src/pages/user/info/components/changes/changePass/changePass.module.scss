@@ -1,0 +1,11 @@
+.box {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 15px;
+
+    @media (max-width:600px) {
+        width: 100%;
+    }
+}

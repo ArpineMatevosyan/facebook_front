@@ -3,8 +3,7 @@ import Router from "./router/router";
 import { isSignIn } from "../src/store/auth/slice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-//import { getUserInfo } from "./services/userInfo";
-import { UserInfoAPI } from "./services/userInfo";
+import { UserInfoAPI } from "./services/user";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -3,20 +3,23 @@ import MainButton from "../button/button";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ImagesAPI } from "../../services/images";
-import { UserInfoAPI } from "../../services/userInfo";
+import { UserInfoAPI } from "../../services/user";
 
 import styles from "./userImages.module.scss";
 
-const UserImages = ({ isDel = false, isMain = false, isBack = true }) => {
-  const { imagesList, images } = useSelector((state) => state.userImages);
+const UserImages = ({ isDel = false, isMain = false, isBack = false }) => {
+  const { images } = useSelector((state) => state.media);
+  const { imagesList } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   const handleDel = (id) => {
     dispatch(ImagesAPI.deleteImage(id));
+    dispatch(ImagesAPI.getImages());
   };
 
   const handleSetBack = (id) => {
     dispatch(ImagesAPI.backImage(id));
+    dispatch(UserInfoAPI.getUserInfo());
   };
 
   const handleSet = (id) => {
@@ -25,7 +28,7 @@ const UserImages = ({ isDel = false, isMain = false, isBack = true }) => {
   };
 
   useEffect(() => {
-    dispatch(ImagesAPI.getImages());
+    dispatch(UserInfoAPI.getImages());
   }, [images, imagesList.length]);
 
   return (

@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 
 import styles from "./mainDate.module.scss";
 
-const MainDate = ({ control, name, label }) => {
+const MainDate = ({ control, name, label, className }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Controller
@@ -22,6 +22,7 @@ const MainDate = ({ control, name, label }) => {
               label={label}
               format="YYYY-MM-DD"
               value={formattedDate}
+              className={className}
             />
           );
         }}

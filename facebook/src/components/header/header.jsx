@@ -1,7 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { isSignIn } from "../../store/auth/slice";
-import Button from "../button/button";
 
 import styles from "./header.module.scss";
 
@@ -10,24 +8,15 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function signOut() {
-    dispatch(isSignIn(false));
-    localStorage.removeItem("token");
-    navigate("/");
-  }
-
   return (
     <div className={styles.header}>
       <nav>
-        {!signIn && <Link to="/">Login</Link>}
         {signIn && <NavLink to="/">Home</NavLink>}
         {signIn && <NavLink to="/account">My account</NavLink>}
+        <Link to="/messages">Messages</Link>
+        <Link to="/images">Gallery</Link>
+        <Link to="/info">Settings</Link>
       </nav>
-      {signIn && (
-        <Button variant="outlined" onClick={signOut}>
-          Sign out
-        </Button>
-      )}
     </div>
   );
 };

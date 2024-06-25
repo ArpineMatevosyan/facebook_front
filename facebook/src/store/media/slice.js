@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ImagesAPI } from "../../services/images";
 
-const UserImages = createSlice({
-  name: "UserImages",
+const Media = createSlice({
+  name: "Media",
   initialState: {
-    imagesList: [],
     status: null,
     imagesData: [],
     images: [],
@@ -20,11 +19,7 @@ const UserImages = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(ImagesAPI.getImages.fulfilled, (state, action) => {
-        state.imagesList = action.payload.data.data.reverse();
-      })
       .addCase(ImagesAPI.postImages.fulfilled, (state, action) => {
-        console.log(action.payload.data);
         state.imagesData = action.payload.data;
         state.images = action.payload.data.map((image) => image.path);
       })
@@ -37,6 +32,6 @@ const UserImages = createSlice({
   },
 });
 
-export const { isDel } = UserImages.actions;
+export const { isDel } = Media.actions;
 
-export default UserImages;
+export default Media;

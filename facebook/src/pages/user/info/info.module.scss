@@ -1,0 +1,17 @@
+.container {
+    margin: 20px auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .change {
+        color: #A303A0;
+    }
+
+    p {
+        color: #A303A0;
+    }
+}

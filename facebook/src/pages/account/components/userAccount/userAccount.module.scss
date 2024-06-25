@@ -2,13 +2,17 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: #A303A0;
+    padding-left: 20px;
 
     a {
         text-decoration: none;
     }
 
     p {
-        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .personalInfo {

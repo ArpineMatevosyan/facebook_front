@@ -1,20 +1,24 @@
 .header {
     display: flex;
-    width: 100%;
-    border-bottom: 2px solid black;
+    width: 222px;
+    height: 100%;
+    background-color: #490057;
 
     nav {
-        margin: 0 auto;
-        height: 60px;
+        margin-top: 150px;
         display: flex;
+        flex-direction: column;
+        padding-left: 20px;
         gap: 30px;
-        justify-content: center;
-        align-items: center;
 
         a {
             text-decoration: none;
-            color: black;
+            color: #FBB03B;
         }
+    }
+
+    @media (min-width:1060px) {
+        max-width: 90%;
     }
 
 }

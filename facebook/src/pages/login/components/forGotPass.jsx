@@ -5,6 +5,8 @@ import { AuthAPI } from "../../../services/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import styles from "./forGotPass.module.scss";
+
 const ForgotPass = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const ForgotPass = () => {
     navigate("/");
   });
   return (
-    <div>
+    <div className={styles.ForgotPassBox}>
       <Input control={control} name="email" type="email" placeholder="email" />
       <MainButton onClick={onSend}>Send</MainButton>
     </div>
