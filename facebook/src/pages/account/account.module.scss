@@ -1,7 +1,5 @@
 .container {
     max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
     gap: 20px;
 
     .backgroundImage {
@@ -10,6 +8,25 @@
         display: grid;
         grid-template-rows: 280px 123px;
         margin-bottom: 30px;
+
+        .backgroundContainer {
+
+            position: relative;
+
+            :hover {
+                .imageHover {
+                    display: block;
+                }
+            }
+
+            .imageHover {
+                position: absolute;
+                bottom: 25px;
+                right: 25px;
+                display: none;
+            }
+        }
+
 
 
         .backgroundImageBottom {
@@ -22,6 +39,7 @@
                 position: relative;
 
                 .main {
+                    display: flex;
                     flex-direction: row-reverse;
                     padding-left: 215px;
 
@@ -55,7 +73,6 @@
         }
     }
 
-
     .top {
         display: flex;
         justify-content: space-between;
@@ -78,8 +95,5 @@
             flex-direction: column;
             gap: 5px;
         }
-
-
-
     }
 }

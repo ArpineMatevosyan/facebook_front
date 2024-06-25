@@ -1,18 +1,15 @@
 .mainTop {
-    margin: 0 auto;
+    //   margin: 0 auto;
     height: fit-content;
     margin-bottom: 30px;
-    display: flex;
-    width: 100%;
+    // display: flex;
+    //width: 100%;
+
 
     img {
-        width: 100%;
+        //  width: fit-content;
         height: 280px;
-        margin: 0 auto;
-        object-fit: fill;
-
-        // &:hover{
-
-        // }
+        //   object-fit: fill;
+        width: 100%;
     }
 }

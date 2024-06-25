@@ -1,6 +1,5 @@
 import Login from "../pages/login/login";
 import Register from "../pages/register/register";
-import Home from "../pages/home/home";
 import Account from "../pages/account/account";
 import User from "../pages/user/user";
 import Images from "../pages/user/images/images";
@@ -19,8 +18,7 @@ export const guestRouter = [
 ];
 
 export const signInRoute = [
-  { text: "home", path: "/", element: <h1>My home page</h1> },
-  { text: "account", path: "/account", element: <Account /> },
+  { text: "account", path: "/", element: <Account /> },
   { text: "user", path: "/user", element: <User /> },
   { text: "images", path: "/images", element: <Images /> },
   { text: "info", path: "/info", element: <Info /> },

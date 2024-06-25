@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 
+import clsx from "clsx";
 import styles from "./backgroundImage.module.scss";
 
-const BackgroundImage = () => {
+const BackgroundImage = ({ children, className }) => {
   const { userInfo } = useSelector((state) => state.user);
 
   const bgImage = userInfo?.images?.find((item) => item.bg_image === 1);
@@ -11,8 +12,9 @@ const BackgroundImage = () => {
     : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgsaRe2zqH_BBicvUorUseeTaE4kxPL2FmOQ&s";
 
   return (
-    <div className={styles.mainTop}>
+    <div className={clsx(styles.mainTop, className)}>
       <img src={backgroundImageUrl} />
+      {children}
     </div>
   );
 };

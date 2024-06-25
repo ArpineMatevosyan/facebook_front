@@ -11,8 +11,8 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <nav>
-        {signIn && <NavLink to="/">Home</NavLink>}
-        {signIn && <NavLink to="/account">My account</NavLink>}
+        {/* {signIn && <NavLink to="/">Home</NavLink>} */}
+        {signIn && <NavLink to="/">My account</NavLink>}
         <Link to="/messages">Messages</Link>
         <Link to="/images">Gallery</Link>
         <Link to="/info">Settings</Link>

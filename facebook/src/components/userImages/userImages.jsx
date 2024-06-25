@@ -14,7 +14,7 @@ const UserImages = ({ isDel = false, isMain = false, isBack = false }) => {
   const dispatch = useDispatch();
   const handleDel = (id) => {
     dispatch(ImagesAPI.deleteImage(id));
-    dispatch(ImagesAPI.getImages());
+    dispatch(UserInfoAPI.getUserInfo());
   };
 
   const handleSetBack = (id) => {
@@ -28,7 +28,7 @@ const UserImages = ({ isDel = false, isMain = false, isBack = false }) => {
   };
 
   useEffect(() => {
-    dispatch(UserInfoAPI.getImages());
+    dispatch(UserInfoAPI.getUserInfo());
   }, [images, imagesList.length]);
 
   return (

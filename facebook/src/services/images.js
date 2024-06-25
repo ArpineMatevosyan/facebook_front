@@ -3,9 +3,9 @@ import axiosGet from "../axios/axiosGet";
 import axiosPost from "../axios/axiosPost";
 
 export const ImagesAPI = Object.freeze({
-  getImages: createAsyncThunk("get/get-images", async (data) => {
-    return await axiosGet.get("api/user-images", data);
-  }),
+  // getImages: createAsyncThunk("get/get-images", async (data) => {
+  //   return await axiosGet.get("api/user-images", data);
+  // }),
   mainImage: createAsyncThunk("post/post-mainImages", async (id) => {
     return await axiosPost.post(`api/add-user-main-image/${id}`);
   }),
